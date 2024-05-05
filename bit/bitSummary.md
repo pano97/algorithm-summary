@@ -57,7 +57,7 @@ _______
 
 ## Tricks
 ### Determine odd or even number
-```aidl
+```java
 public boolean isOdd(int number) {
     return n&1==0 ? false: true;
 }
@@ -69,7 +69,7 @@ b = (a ^ b) ^ b = a
 
 a = a ^ b = (a ^ b) ^ a = b
 
-```aidl
+```java
 public void swapNumber(int a, int b) {
     a = a ^ b;
     b = a ^ b;
@@ -77,14 +77,14 @@ public void swapNumber(int a, int b) {
 }
 ```
 ### Get the i-th digit in a binary number
-```aidl
+```java
 public int getIthDigitInBinary(int n, int i) {
     return n & (1 << i);
 }
 ```
 ### Set the rightmost 1 to 0
 n = n & (n-1)
-```aidl
+```java
 a   = 11 = 1 0 1 1
 a-1 = 10 = 1 0 1 0
 __________________
@@ -99,7 +99,7 @@ __________________
 
 Since we reset the rightmost 1 to 0 in the number, the number will be decreased gradually.
 
-```aidl
+```java
 public int countOneBitInBinary(int n) {
     int cnt = 0;
     while(n > 0) {
@@ -110,7 +110,7 @@ public int countOneBitInBinary(int n) {
 }
 ```
 #### Method 2: Loop 32 position and determine the bit
-```aidl
+```java
 public int countOneBitInBinary(int n) {
         int cnt = 0;
         for(int i=0;i<32;i++) {
@@ -123,7 +123,7 @@ public int countOneBitInBinary(int n) {
 ```
 ### Bitwise operation addition
 Add two numbers without addition operation, only use bitwise operation.
-```aidl
+```java
     public int addTwoNumbers(int num1, int num2) {
         int a = num1 ^ num2; // sum without carry
         int b = num1 & num2; // for carry
@@ -143,7 +143,7 @@ Input: n = 00000010100101000001111010011100
 Output:    964176192 (00111001011110000010100101000000)
 ```
 
-```aidl
+```java
 public int reverseBits(int n) {
         int rev = 0;
         for(int i=0;i<32;i++) {
@@ -169,7 +169,7 @@ Output: 4
 ```
 - Set a int oxr with value 0.
 - Use the oxr to ^ with all numbers in int[] nums.
-```aidl
+```java
 /**
      * Example 4: Single number.
      * Only one number appear once, others appear twice.
@@ -215,7 +215,7 @@ ___________
     0 0 1 0
 ```
 Add the sum of digit(i), and do the mod operation.
-```aidl
+```java
 public int singleNumber(int[] nums) {
         int ans = 0;
         for(int i=0;i<32;i++) {
@@ -247,7 +247,7 @@ Output: 4
      * Set the larger number b's rightest 1 to 0.
      * Loop the operation while a != b
 Return the longest common prefix.
-```aidl
+```java
 public int rangeBitwiseAnd(int left, int right) {
         while(right > left) {
             right = right & (right - 1); // set the rightest 1 to 0
