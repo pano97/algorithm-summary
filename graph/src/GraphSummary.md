@@ -57,7 +57,7 @@ public class Graph {
 Define a GraphGenerator tool class to transfer diverse input into a graph.
 
 For example, input is a n-3 matrix:
-```aidl
+```
 [
     [0, 1, 3],
     [0, 2, 1]
@@ -134,7 +134,7 @@ public static void BFS(Node node) {
 - Use a HashSet<Node> visited to record the visited nodes.
 - Find one neighbor not visit, and then break.
 - When push, always push the parent first, and then the unvisited child.(Push twice)
-```aidl
+```java
 public static void DFS(Node node) {
     Stack<Node> stack = new Stack<>();
     HashSet<Node> visited = new HashSet<>();
