@@ -1,6 +1,6 @@
 package com.lc.graph.template.itemplate;
 
-abstract class IGraphGenerator<V> {
+public abstract class IGraphGenerator<V> {
 
     Graph<V> createGraph(V[][] matrix) {
         Graph<V> graph = new Graph<>();
