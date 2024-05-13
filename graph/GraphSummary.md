@@ -63,7 +63,7 @@ For example, input is a n-3 matrix:
     [0, 2, 1]
 ]
 ```
-![img.png](img.png)
+![img.png](src/img.png)
 
 ```java
 public static Graph createGraphWithEdgeFromTo(Integer[][] matrix) {

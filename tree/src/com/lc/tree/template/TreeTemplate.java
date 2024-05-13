@@ -1,4 +1,4 @@
-package com.lc.binary;
+package com.lc.tree.template;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
