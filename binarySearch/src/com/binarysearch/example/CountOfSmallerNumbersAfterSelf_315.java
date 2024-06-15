@@ -1,7 +1,6 @@
 package com.binarysearch.example;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class CountOfSmallerNumbersAfterSelf_315 {
     public static void main(String[] args) {
@@ -9,8 +8,8 @@ public class CountOfSmallerNumbersAfterSelf_315 {
         List<Integer> res = countSmaller(nums);
         printList(res);
 
-//        res = countSmaller_2(nums);
-//        printList(res);
+        res = countSmaller_2(nums);
+        printList(res);
     }
 
     private static void printList(List<Integer> res) {
@@ -44,6 +43,57 @@ public class CountOfSmallerNumbersAfterSelf_315 {
         for(int i=start;i<=end;i++) {
             if(nums[i] < target) ++cnt;
         }
+        return cnt;
+    }
+
+    /**
+     * 方法二：TreeMap<Integer,Integer> 超时
+     * 从右往左遍历nums
+     * 1. map中存在nums[i]
+     * 小于nums[i]的元素个数
+     * 2. map中不存在nums[i]
+     * 找到map中比nums[i]大的元素
+     * 如果有比nums[i]大的元素next，返回小于next的元素个数
+     * 如果没有比nums[i]大的元素，返回map中所有元素的个数
+     *
+     * 将nums[i]加入到tree中
+     * */
+    public static List<Integer> countSmaller_2(int[] nums) {
+        int n = nums.length;
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        int[] res = new int[n];
+
+        for(int i=n-1;i>=0;--i) {
+            if(map.containsKey(nums[i])) {
+                // tree中含有nums[i]这个节点
+                Map tmp = map.headMap(nums[i]);  // 比nums[i]小的map
+                res[i] = _countMapNodes(tmp);
+            } else{
+                // tree中没有nums[i]元素
+                Integer next = map.higherKey(nums[i]);  // 找到第一个比nums[i]大的元素
+                if(next == null)
+                    // 没有比nums[i]大的元素，说明全部比nums[i]小
+                    res[i] = _countMapNodes(map);
+                else {
+                    Map tmp = map.headMap(next);
+                    res[i] = _countMapNodes(tmp);
+                }
+
+            }
+            map.put(nums[i], map.getOrDefault(nums[i],0) + 1);  // 记录nums[i]出现的次数
+        }
+
+        List<Integer> rr = new ArrayList<>();
+        for(int i=0;i<n;i++)
+            rr.add(res[i]);
+        return rr;
+    }
+
+    private static int _countMapNodes(Map<Integer, Integer> map) {
+        if(map == null) return 0;
+        int cnt = 0;
+        for(Map.Entry<Integer, Integer> entry: map.entrySet())
+            cnt += entry.getValue();
         return cnt;
     }
 }
