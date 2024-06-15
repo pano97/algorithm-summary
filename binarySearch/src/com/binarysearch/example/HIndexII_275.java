@@ -2,8 +2,9 @@ package com.binarysearch.example;
 
 public class HIndexII_275 {
     public static void main(String[] args) {
-        int[] nums = {2};
+        int[] nums = {0};
         System.out.println(hIndex_4(nums));
+        System.out.println(hIndex_5(nums));
     }
     /**
      * 方法一：暴力法 O(nlogn) 3.54%
@@ -86,7 +87,7 @@ public class HIndexII_275 {
     public static int hIndex_4(int[] citations) {
         int n = citations.length;
 
-        int left = 0, right = n;
+        int left = 1, right = n;  // 为什么从1开始？
 
         while(left< right) {
             int mid = left + right >> 1;
@@ -98,6 +99,26 @@ public class HIndexII_275 {
         }
 
         return n-left;
+    }
+
+
+    /**
+     * for revision
+     * */
+    public static int hIndex_5(int[] citations) {
+        int n = citations.length;
+
+        int left = 0, right = n;
+
+        while(left < right) {
+            int mid = left + right + 1>> 1;
+            if(citations[n-mid] >= mid) {
+                // 左区间，mid趋向左，check条件满足
+                left = mid;
+            } else
+                right = mid - 1;
+        }
+        return left;
     }
 
 }
