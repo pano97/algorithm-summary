@@ -1,4 +1,4 @@
-package com.binarysearch.example;
+package com.binarysearch.example.boundary;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -107,3 +107,6 @@ public class FindRightInterval_436 {
         return res;
     }
 }
+
+//TODO: 双指针怎么做
+

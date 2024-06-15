@@ -37,7 +37,7 @@ You should minimize the number of calls to the API.
 - 右边区间的左边界(7) or
 - 左边区间的有边界(3)
 
-![img_1.png](img_1.png)
+![img_1.png](img/img_1.png)
 
 对check函数有了初步的理解以后就可以引入二分查找的两个模板了：
 ```java
@@ -96,9 +96,8 @@ You should minimize the number of calls to the API.
 | **LC275 H-Index II**                                         | sorted                      | mid   | 40             |
 | LC 278 First Bad Version                                     |                             | easy  | 100            |
 | LC 436 Find Right Interval                                   | sorted, interval            | mid   | 75             |
-| LC 441 Arranging Coins                                       | pre sum                      | easy  | 95             |
 | **LC 475 Heaters**                                           |                             | mid   | 80             |
-| LC 209 Minimum Size Subarray                                 |                             |       |                |
+
 
 
 

@@ -59,7 +59,6 @@ public class NthDigit_400 {
         return pre;
     }
 
-    // TODO: 计算一个数的位数，可以优化吗？
     /**
      * n 除以 (k*10）k取值[1...n]
      * 找到 n/(k*10) == 0的最小值

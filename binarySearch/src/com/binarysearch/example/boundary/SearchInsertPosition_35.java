@@ -1,4 +1,4 @@
-package com.binarysearch.example;
+package com.binarysearch.example.boundary;
 
 public class SearchInsertPosition_35 {
     public static void main(String[] args) {

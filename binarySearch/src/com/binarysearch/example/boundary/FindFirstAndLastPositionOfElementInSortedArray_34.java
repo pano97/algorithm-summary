@@ -1,4 +1,4 @@
-package com.binarysearch.example;
+package com.binarysearch.example.boundary;
 
 public class FindFirstAndLastPositionOfElementInSortedArray_34 {
     public static void main(String[] args) {
