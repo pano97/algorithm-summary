@@ -233,7 +233,9 @@ Output: 0
 的left稍做判断，返回left+1位置即可。
 
 但这里有不一样，因为我们在while中对right指针进行了处理，过滤了那些nums[left] == nums[right]的位置。
+
 ![img_4.png](img_4.png)
+
 比如上图的情况，最后程序找到的最大值是0位置的2而不是5位置。
 
 ### 题解
