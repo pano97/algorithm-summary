@@ -1,9 +1,10 @@
-package com.binarysearch.example;
+package com.binarysearch.example.minmax;
 
 public class SearchInRotatedSortedArray_33 {
     public static void main(String[] args) {
         int[] nums = {4,5,6,7,0,1,2};
         System.out.println(search_2(nums, 0));
+        System.out.println(search_4(nums, 0));
     }
 
     /**
@@ -90,5 +91,40 @@ public class SearchInRotatedSortedArray_33 {
             }
         }
         return nums[left] == target ? left: -1;
+    }
+
+
+
+
+    /**
+     * 20240615
+     * [4,5,6,7,0,1,2]
+     * 1.关键在于判断mid落入哪个区间，纯有序还是右边的无序
+     * 2.每次可以排除一半元素，这是二分法的精髓
+     * 3.这一题的元素是unique的
+     * */
+    public static int search_4(int[] nums, int target) {
+        int n = nums.length;
+
+        int left = 0, right = n-1;
+        while(left < right) {
+            int mid = left+right >> 1;
+            if(nums[mid] >= nums[left]) {
+                // 落入有序区间
+                if(nums[left] <= target && target <= nums[mid]) {
+                    // 落入mid的左边
+                    right = mid;
+                } else
+                    left = mid + 1;
+            } else {
+                // 落入无序区间
+                if(target >= nums[mid] && target <= nums[right]) {
+                    // 落入mid的右边
+                    left = mid;
+                } else
+                    right = mid-1;
+            }
+        }
+        return nums[left] == target ? left:-1;
     }
 }
