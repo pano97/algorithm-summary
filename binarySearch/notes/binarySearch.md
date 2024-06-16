@@ -84,8 +84,10 @@ You should minimize the number of calls to the API.
 
 ## 应用分类
 常见的二分查找可分为以下几类常见题型：
-- 旋转数组区间问题
 - 区间左右边界问题
+- 极大值极小值问题
+- 二维数组查找问题 
+- 前缀和问题
 
 ### 区间左右边界问题
 | Title                                                        | Key words                   | Level | Familiar Score |
@@ -98,7 +100,26 @@ You should minimize the number of calls to the API.
 | LC 436 Find Right Interval                                   | sorted, interval            | mid   | 75             |
 | **LC 475 Heaters**                                           |                             | mid   | 80             |
 
+区间的左右边界问题的难点在于，构造check函数。有的时候需要考虑将原始数组排序，或者是利用数组和index
+的关系来构造check。比如前缀和问题，将前缀和数组构造完成以后，就变成了找某个边界问题。关于前缀和问题，
+放在后面的专题总结。
 
+### 极大值极小值问题
+| Title                                         | Key words         | Level | Familiar Score |
+|-----------------------------------------------|-------------------|-------|----------------|
+| LC33 Search in Rotated Sorted Array           | rotate, min       | m   | 85             |
+| LC81 Search in Rotated Sorted Array II        | rotate, duplicate | m   | 85             |
+| LC153 Find Minimum in Rotated Sorted Array    | rotate, distinct  | m   | 85             |
+| LC154 Find Minimum in Rotated Sorted Array II | rotate, duplicate | h   | 85             |
+| LC162 Find Peak Element                       | disorder, peak    | m   | 90             |
+
+在极值问题中，数组不是有序的，但是还是可以用二分解决。正如前文一直强调的，**二分并不一定要严格有序**，核心在于
+如果设计check, 每次排除掉一半的元素，逼近目标值。
+
+比如Rotated Array问题，[4,5,6,7,0,1,2], 对于每一次二分操作的mid, 会将[left, right]分为两个区间，一部分有序，
+一部分无序。
+![img_3.png](img_3.png)
+对于mid落入无序部分和有序部分，应该分情况讨论，确定left和right指针。
 
 
 ==============
@@ -107,16 +128,6 @@ You should minimize the number of calls to the API.
 167
 532
 
-### 旋转数组查找问题
-lc33， lc81 (查找某个数)
-
-
-### 区间最大值最小值问题
-lc153 旋转数组找最小值 154
-162
-
-### 寻找边界问题
-611
 
 ### 二维数组查找问题
 - 74
